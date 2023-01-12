@@ -73,8 +73,15 @@ export class AppController {
     if (await bcrypt.compare(userdata.password, rows[0].password)) {
       session.user_id = rows[0].id;
       return { url: '/' };
-    }else {
-      return { url: '/login'}
+    } else {
+      return { url: '/login' };
     }
+  }
+
+  @Get('/logout')
+  @Redirect()
+  logout(@Session() session: Record<string, any>) {
+    session.user_id = null;
+    return { url: '/' };
   }
 }
