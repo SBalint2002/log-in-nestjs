@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
-import session, { Session } from 'express-session';
+import * as session from 'express-session';
 import { join } from 'path';
 import { AppModule } from './app.module';
 
